@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { router } from "expo-router"
 
 export const useAuthStore = create((set) => ({
     user: null,
@@ -77,7 +78,6 @@ export const useAuthStore = create((set) => ({
             await AsyncStorage.setItem("token", data.token)
 
             set({ user: data.newUser, token: data.token, isLoading: false })
-
             return { success: true }
 
         } catch (error) {

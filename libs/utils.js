@@ -1,7 +1,7 @@
 //this finction will convert the createdAt tp this format: "Mar 2025"
 export function formatMemberSince(dateString) {
-    const date = new Data(dateString)
-    const month = date.toLocalString("default", { month: "short" });
+    const date = new Date(dateString)
+    const month = date.toLocaleString("default", { month: "short" });
     const year = date.getFullYear();
     return `${month} ${year}`;
 }
