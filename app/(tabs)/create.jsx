@@ -31,8 +31,6 @@ export default function Create() {
   const [imageBase64, setImageBase64] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { token } = useAuthStore();
-
   const renderRatingPicker = () => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
