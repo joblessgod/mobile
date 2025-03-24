@@ -16,27 +16,26 @@ import { Ionicons } from "@expo/vector-icons";
 import styles from "../../assets/styles/login.styles";
 import COLORS from "../../constants/colors";
 import { useAuthStore } from "../../store/authStore";
+import Loader from "../../components/Loader";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
-  const { isLoading, login } = useAuthStore();
+
+  const { isLoading, login, isCheckingAuth } = useAuthStore();
 
   const handleLogin = async () => {
     const result = await login(email, password);
     if (result.success === false) {
-          return Alert.alert("Error", result.error);
-        }
-        Alert.alert("Logged in successfully!");
-        setEmail("");
-        setPassword("");
+      return Alert.alert("Error", result.error);
+    }
+    Alert.alert("Logged in successfully!");
+    setEmail("");
+    setPassword("");
   };
 
-
-  
-
+  if (isCheckingAuth) return null
   return (
     <KeyboardAvoidingView
       style={{ flex: 5 }}

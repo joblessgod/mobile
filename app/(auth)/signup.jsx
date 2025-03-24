@@ -135,8 +135,8 @@ export default function Signup() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
-              
-              {/* FOOTER */}
+
+            {/* FOOTER */}
             <View style={styles.footer}>
               <Text style={styles.footerText}>Already have an account?</Text>
 
